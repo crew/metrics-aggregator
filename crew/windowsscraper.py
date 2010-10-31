@@ -17,31 +17,40 @@ hostname = a string (pokemon name)
 
 def f():
     try:
-        f = open('test.txt', 'r')
+        f = open('data.txt', 'r')
         file_string = f.read()
-        user_list = file_string.split("/n")
-        user_list = [elem.strip() for elem in user_list]
+        time_list = file_string.split("/n")
+        #time_list = [elem.strip() for elem in user_list]
     
-        for user in user_list:
-            temp_list = file_string.split(",")
-            separated_user = [elem.strip() for elem in temp_list]
+        for time in time_list:
+            #temp_list = file_string.split(",")
+            #separated_user = [elem.strip() for elem in temp_list]
 
-            mapping = {
-                      "login":separated_user.pop(2),
-                      "user-sessions":1,
-                      "hostname":separated_user.pop(0),
-                      "os":"Windows",
-                      "version":separated_user.pop(1),
-                      "timestamp":separated_user.pop(0)
-                      #this is being given as a datetime, yes?
-                      }
+            print time_list
 
-            api = HttpAPI(namespace='ns', apikey='apikey', hostname='localhost',
-            port=2000, timeout=20)
-  
-            print mapping #for testing
+            timestamp = time_list.pop(0)
+            timestamp + time_list.pop(0)
+            timestamp + time_list.pop(0)
+            
+            pieces = time.split(" ")
+
+            for computerpair in pieces:
+
+                mapping = {
+                          "login":"n/a",
+                          "user-sessions":1,
+                          "hostname":computerpair.split(",").pop(0),
+                          "os":"Windows",
+                          "version":"n/a",
+                          "timestamp":timestamp
+                          }
+
+                api = HttpAPI(namespace='ns', apikey='apikey', hostname='localhost',
+                port=2000, timeout=20)
+      
+                print mapping #for testing
     
-            api.store(timestamp=time.time(), **mapping)
+            #api.store(timestamp=time.time(), **mapping)
 
         f.close()
 
