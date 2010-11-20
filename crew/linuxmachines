@@ -1,0 +1,59 @@
+Host                       OS     Version Room Model               
+ia5130vm02.ccs.neu.edu     Ubuntu 8.04    312A virtual             
+ia5130vm03.ccs.neu.edu     Ubuntu 8.04    312A virtual             
+ia5130vm04.ccs.neu.edu     Ubuntu 8.04    312A virtual             
+ia5130vm05.ccs.neu.edu     Ubuntu 8.04    312A virtual             
+ia5130vm06.ccs.neu.edu     Ubuntu 8.04    312A virtual             
+ia5130vm07.ccs.neu.edu     Ubuntu 8.04    312A virtual             
+ia5130vm08.ccs.neu.edu     Ubuntu 8.04    312A virtual             
+ia5130vm09.ccs.neu.edu     Ubuntu 8.04    312A virtual             
+ia5130vm10.ccs.neu.edu     Ubuntu 8.04    312A virtual             
+punisher.ccs.neu.edu       Ubuntu 9.10    370  Dell Optiplex GX270 
+account-kiosk.ccs.neu.edu  Ubuntu 10.04   310E iMac                
+login.ccs.neu.edu          Ubuntu 9.10    312A Dell Poweredge 2650 
+seawolf.ccs.neu.edu        Ubuntu 9.10    102  Dell Optiplex 960   
+batterup.ccs.neu.edu       Ubuntu 9.10    102  Dell Optiplex 960   
+bubbles.ccs.neu.edu        Ubuntu 9.10    102  Dell Optiplex 960   
+timepilot.ccs.neu.edu      Ubuntu 9.10    102  Dell Optiplex 960   
+agentx.ccs.neu.edu         Ubuntu 9.10    102  Dell Optiplex 960   
+alienarena.ccs.neu.edu     Ubuntu 9.10    102  Dell Optiplex 960   
+alleyrally.ccs.neu.edu     Ubuntu 9.10    102  Dell Optiplex 960   
+apollo14.ccs.neu.edu       Ubuntu 9.10    102  Dell Optiplex 960   
+armorattack.ccs.neu.edu    Ubuntu 9.10    102  Dell Optiplex 960   
+astroblaster.ccs.neu.edu   Ubuntu 9.10    102  Dell Optiplex 960   
+attackufo.ccs.neu.edu      Ubuntu 9.10    102  Dell Optiplex 960   
+avenger.ccs.neu.edu        Ubuntu 9.10    102  Dell Optiplex 960   
+berzerk.ccs.neu.edu        Ubuntu 9.10    102  Dell Optiplex 960   
+biplane.ccs.neu.edu        Ubuntu 9.10    102  Dell Optiplex 960   
+blackwidow.ccs.neu.edu     Ubuntu 9.10    102  Dell Optiplex 960   
+blueprint.ccs.neu.edu      Ubuntu 9.10    102  Dell Optiplex 960   
+bosconian.ccs.neu.edu      Ubuntu 9.10    102  Dell Optiplex 960   
+breakout.ccs.neu.edu       Ubuntu 9.10    102  Dell Optiplex 960   
+joust.ccs.neu.edu          Ubuntu 9.10    102  Dell Optiplex 960   
+hattrick.ccs.neu.edu       Ubuntu 9.10    102  Dell Optiplex 960   
+gyruss.ccs.neu.edu         Ubuntu 9.10    102  Dell Optiplex 960   
+mrdo.ccs.neu.edu           Ubuntu 9.10    102  Dell Optiplex 960   
+orbit.ccs.neu.edu          Ubuntu 9.10    102  Dell Optiplex 960   
+spaceinvaders.ccs.neu.edu  Ubuntu 9.10    102  Dell Optiplex 960   
+startrek.ccs.neu.edu       Ubuntu 9.10    102  Dell Optiplex 960   
+turtles.ccs.neu.edu        Ubuntu 9.10    102  Dell Optiplex 960   
+warlords.ccs.neu.edu       Ubuntu 9.10    102  Dell Optiplex 960   
+upscope.ccs.neu.edu        Ubuntu 9.10    102  Dell Optiplex 960   
+gorf.ccs.neu.edu           Ubuntu 9.10    102  Dell Optiplex 960   
+jumpbug.ccs.neu.edu        Ubuntu 9.10    102  Dell Optiplex 960   
+eagle.ccs.neu.edu          Ubuntu 9.10    102  Dell Optiplex 960   
+computerspace.ccs.neu.edu  Ubuntu 9.10    102  Dell Optiplex 960   
+choplifter.ccs.neu.edu     Ubuntu 9.10    102  Dell Optiplex 960   
+brix.ccs.neu.edu           Ubuntu 9.10    102  Dell Optiplex 960   
+bumpnjump.ccs.neu.edu      Ubuntu 9.10    102  Dell Optiplex 960   
+gauntlet.ccs.neu.edu       Ubuntu 9.10    102  Dell Optiplex 960   
+hiway.ccs.neu.edu          Ubuntu 9.10    102  Dell Optiplex 960   
+majorhavoc.ccs.neu.edu     Ubuntu 9.10    102  Dell Optiplex 960   
+millipede.ccs.neu.edu      Ubuntu 9.10    102  Dell Optiplex 960   
+missilecommand.ccs.neu.edu Ubuntu 9.10    102  Dell Optiplex 960   
+mousetrap.ccs.neu.edu      Ubuntu 9.10    102  Dell Optiplex 960   
+tank.ccs.neu.edu           Ubuntu 9.10    102  Dell Optiplex 960   
+vanguard.ccs.neu.edu       Ubuntu 9.10    102  Dell Optiplex 960   
+spyhunter.ccs.neu.edu      Ubuntu 9.10    102  Dell Optiplex 960   
+skydiver.ccs.neu.edu       Ubuntu 9.10    102  Dell Optiplex 960   
+sostegno.ccs.neu.edu       Ubuntu 9.04    312A virtual 
