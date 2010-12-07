@@ -4,3 +4,11 @@
 doc/build
 build
 wtmp2json
+*.log
+*.o
+Makefile
+Makefile.in
+config.status
+configure.scan
+autom4te.cache
+.deps

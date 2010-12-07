@@ -24,9 +24,9 @@ print_entry(FILE *f, struct utmp *entry) {
     fprintf(f, "\"host\":\"%s\",", entry->ut_host);
     fprintf(f, "\"termination\":%d,", entry->ut_exit.e_termination);
     fprintf(f, "\"exit\":%d,", entry->ut_exit.e_exit);
-    fprintf(f, "\"session\":%ld,", entry->ut_session);
-    fprintf(f, "\"seconds\":%ld,", entry->ut_tv.tv_sec);
-    fprintf(f, "\"useconds\":%ld,", entry->ut_tv.tv_usec);
+    fprintf(f, "\"session\":%d,", entry->ut_session);
+    fprintf(f, "\"seconds\":%d,", entry->ut_tv.tv_sec);
+    fprintf(f, "\"useconds\":%d,", entry->ut_tv.tv_usec);
     /* XXX Assumes ipv4 */
     bits[0] = ip & 0xFF;
     bits[1] = (ip >> 8) & 0xFF;
