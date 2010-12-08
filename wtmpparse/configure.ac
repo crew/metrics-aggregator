@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.67])
+AC_PREREQ([2.64])
 AC_INIT([wtmp2json], [0.1], [lee@ccs.neu.edu])
 AC_CONFIG_SRCDIR([main.c])
 AM_INIT_AUTOMAKE
