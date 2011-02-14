@@ -87,8 +87,17 @@ class WindowsData(object):
     @staticmethod
     def parse_date(s):
         FORMAT='%Y %b %d %H:%M:%S'
-        x = '%d %s' % (datetime.now().year, s)
-        return time.strptime(x, FORMAT)
+        now = datetime.now()
+        x = '%d %s' % (now.year, s)
+        x = time.strptime(x, FORMAT)
+        if x.tm_mon <= now.month:
+            # If the parsed month is less than or equal to the current month
+            # assume it is the current year.
+            return x
+        # It's the previous year.
+        l = list(x[:])
+        l[0] = now.year - 1
+        return time.struct_time(l)
 
     @staticmethod
     def parse_line(line):
