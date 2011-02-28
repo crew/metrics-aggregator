@@ -1,0 +1,13 @@
+Source: wtmp2json
+Section: utils
+Priority: extra
+Maintainer: Alex Lee <lee@ccs.neu.edu>
+Build-Depends: debhelper (>= 7), autotools-dev
+Standards-Version: 3.8.1
+Homepage:
+
+Package: wtmp2json
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Prints wtmp files in JSON.
+ Prints wtmp files in lines of JSON.

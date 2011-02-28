@@ -1,0 +1,44 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH WTMP2JSON 1 "February 28, 2011"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+wtmp2json \- Prints wtmp in JSON.
+.SH SYNOPSIS
+.B wtmp2json
+.RI "file"
+    Print the given wtmp file as JSON.
+.br
+.B wtmp2json
+    Print /var/log/wtmp as JSON using
+.BR getutent (5).
+.br
+.SH DESCRIPTION
+.B wtmp2json
+is a utility to print wtmp/utmp files as lines of JSON.
+.PP
+.SH OPTIONS
+.TP
+.B \-h, \-\-help
+Show options, usage.
+.SH SEE ALSO
+.BR utmp (5).
+.br
+.SH AUTHOR
+wtmp2json was written by Alex Lee <lee@ccs.neu.edu>.
+.PP
+This manual page was written by Alex Lee <lee@ccs.neu.edu>,
+for the Debian project (and may be used by others).
