@@ -98,6 +98,7 @@ read_from_stdin() {
     while (fill_buffer(buffer, UTMP_SIZE) > 0) {
         print_entry(stdout, (struct utmp *) buffer);
     }
+    free(buffer);
 }
 
 static const char *
