@@ -11,3 +11,14 @@ config.status
 configure.scan
 autom4te.cache
 .deps
+*.dsc
+*.tar.gz
+*.build
+*.changes
+*.deb
+wtmpparse/build-stamp
+wtmpparse/config.guess
+wtmpparse/config.sub
+wtmpparse/debian/files
+wtmpparse/debian/wtmp2json.substvars
+*.sqlite3

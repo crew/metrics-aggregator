@@ -3,6 +3,8 @@
 #include <string.h>
 #include <utmp.h>
 
+#define UTMP_SIZE (sizeof (struct utmp))
+
 static const char *
 type_to_string(short);
 
@@ -10,6 +12,9 @@ void
 print_usage(char *name) {
     fprintf(stderr, "Usage: %s [file]\n", name);
 }
+
+void
+read_from_stdin();
 
 void
 print_entry(FILE *f, struct utmp *entry) {
@@ -45,6 +50,9 @@ main(int argc, char **argv) {
         if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0) {
             print_usage(argv[0]);
             return 1;
+        } else if (strcmp(argv[1], "--") == 0) {
+            read_from_stdin();
+            return 0;
         }
         /* Set the utmp file. */
         utmpname(argv[1]);
@@ -56,6 +64,40 @@ main(int argc, char **argv) {
     }
     endutent();
     return 0;
+}
+
+/**
+ * Read until the buffer fills up.
+ */
+int
+fill_buffer(char *buffer, int size) {
+    int x;
+    int n = 0;
+    while (n < size) {
+        x = read(0, buffer + n, size - n);
+        if (x == 0) {
+            /* EOF */
+            return 0;
+        }
+        if (x < 0) {
+            perror("read");
+            return 0;
+        }
+        n += x;
+    }
+    return 1;
+}
+
+void
+read_from_stdin() {
+    char *buffer;
+    if ((buffer = malloc(UTMP_SIZE)) == NULL) {
+        perror("malloc");
+        return;
+    }
+    while (fill_buffer(buffer, UTMP_SIZE) > 0) {
+        print_entry(stdout, (struct utmp *) buffer);
+    }
 }
 
 static const char *
