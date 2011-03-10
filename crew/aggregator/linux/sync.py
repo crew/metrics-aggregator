@@ -99,7 +99,7 @@ def sync_linux_host(host, dir_name):
     return fetch_wtmp(host, dir_name)
 
 
-def sync_linux(hosts, sync_dir):
+def sync_linux(hosts, sync_dir, block=True):
     if not os.path.isdir(sync_dir):
         os.mkdir(sync_dir)
     procs = []
@@ -107,6 +107,10 @@ def sync_linux(hosts, sync_dir):
         d = os.path.join(sync_dir, host)
         if not os.path.isdir(d):
             os.mkdir(d)
-        procs.append(fetch_wtmp(host, d))
-    for p in procs:
-        p.wait()
+        p = fetch_wtmp(host, d)
+        if block:
+            p.wait()
+        procs.append(p)
+    if not block:
+        for p in procs:
+            p.wait()
