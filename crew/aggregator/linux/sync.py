@@ -9,11 +9,21 @@ import datetime
 import tempfile
 import threading
 import subprocess
+import gflags
+
+
+gflags.DEFINE_string('sshkey', None, 'Path to the ssh key.')
+gflags.DEFINE_string('sshuser', None, 'The ssh user.')
+gflags.MarkFlagAsRequired('sshkey')
+gflags.MarkFlagAsRequired('sshuser')
+FLAGS = gflags.FLAGS
 
 
 def fetch_date(hostname, key='/home/lee/.ssh/id_dsa'):
-    p = subprocess.Popen(['ssh', '-o', 'StrictHostKeyChecking=no', '-q',
-        '-i', key, hostname, 'date', '+%Y-%m-%d'], stdout=subprocess.PIPE)
+    p = subprocess.Popen(['ssh', '-o', 'StrictHostKeyChecking=no', '-o',
+        'PasswordAuthentication=no', '-q', '-i', FLAGS.sshkey,
+        '-l', FLAGS.sshuser, hostname, 'date', '+%Y-%m-%d'],
+        stdout=subprocess.PIPE)
     y, m, d = map(int, p.stdout.read().split('-'))
     return datetime.date(y, m, d)
 
@@ -29,17 +39,18 @@ def previous_month(d):
     return datetime.date(d.year, m, 1)
 
 
-def _scp(key, hostname, filename, dest):
+def _scp(hostname, filename, dest):
     return subprocess.Popen(['scp', '-o', 'StrictHostKeyChecking=no',
-        '-q', '-i', key, '%s:%s' % (hostname, filename), dest])
+        '-o', 'PasswordAuthentication=no', '-q', '-i', FLAGS.sshkey,
+        '%s@%s:%s' % (FLAGS.sshuser, hostname, filename), dest])
 
 
-def scp(key, hostname, dest):
-    return _scp(key, hostname, '/var/log/wtmp', dest)
+def scp(hostname, dest):
+    return _scp(hostname, '/var/log/wtmp', dest)
 
 
-def scp_archive(key, hostname, dest):
-    return _scp(key, hostname, '/var/log/wtmp.1.gz', dest)
+def scp_archive(hostname, dest):
+    return _scp(hostname, '/var/log/wtmp.1.gz', dest)
 
 
 class DownloadWTMP(threading.Thread):
@@ -51,7 +62,7 @@ class DownloadWTMP(threading.Thread):
         tmpfd, tmppath = tempfile.mkstemp(suffix='.tmp', prefix=hostname)
         logging.debug('%s exists, saving to %s', dest, tmppath)
         # Wait on the download to determine the size.
-        scp(key, hostname, tmppath).wait()
+        scp(hostname, tmppath).wait()
         # Check if the file shrunk (a.k.a rotated)
         if dest_stat.st_size > os.fstat(tmpfd).st_size:
             logging.info('%s shrunk, it has been rotated.', dest)
@@ -59,7 +70,7 @@ class DownloadWTMP(threading.Thread):
             d = previous_month(fetch_date(hostname, key))
             a = os.path.join(dest_dir, 'wtmp-%d-%02d.gz' % (d.year, d.month))
             logging.info('Archiving to %s', a)
-            scp_archive(key, hostname, a)
+            scp_archive(hostname, a)
         logging.debug('Moving %s to %s', tmppath, dest)
         shutil.move(tmppath, dest)
 
@@ -80,7 +91,7 @@ def fetch_wtmp(hostname, dest_dir, key='/home/lee/.ssh/id_dsa'):
     except OSError as e:
         if e.errno == errno.ENOENT:
             # No file or directory
-            p = scp(key, hostname, dest)
+            p = scp(hostname, dest)
         else:
             logging.error(e)
             raise e
