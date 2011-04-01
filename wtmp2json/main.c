@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 #include <utmp.h>
 
 #define UTMP_SIZE (sizeof (struct utmp))
